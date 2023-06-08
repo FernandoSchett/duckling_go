@@ -9,9 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class home_activity extends AppCompatActivity {
+public class home_chocado_activity extends AppCompatActivity {
 
-    Button botao_chocar;
     Button botao_duckdex;
 
     @Override
@@ -19,13 +18,12 @@ public class home_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_home);
 
-        botao_chocar = findViewById(id.chocar_button);
         botao_duckdex = findViewById(id.duckdex_button);
 
         botao_duckdex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(home_activity.this, duck_dex_activity.class);
+                Intent intent = new Intent("com.example.ducklinggo.duck_dex_activity");
                 startActivity(intent);
             }
         });
