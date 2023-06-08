@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_img">
+
+    <ImageView
+        android:id="@+id/orange_rectangle_imageview"
+        android:layout_width="133dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/orange_rectangle"
+        tools:layout_editor_absoluteX="139dp" />
+
+    <ImageView
+        android:id="@+id/broken_egg_imageview"
+        android:layout_width="228dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/broken_egg"
+        tools:layout_editor_absoluteX="92dp" />
+
+    <Button
+        android:id="@+id/chocar_button"
+        android:layout_width="122dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="40dp"
+        android:text="chocar"
+        app:layout_constraintTop_toBottomOf="@+id/broken_egg_imageview"
+        tools:layout_editor_absoluteX="144dp" />
+
+    <Button
+        android:id="@+id/duckdex_button"
+        android:layout_width="122dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="292dp"
+        android:text="DuckDex"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chocar_button"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="144dp" />
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="NOMEDOUSUARIO"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="19dp" />
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        android:text="DATADODIA"
+        app:layout_constraintStart_toEndOf="@+id/name_text"
+        tools:layout_editor_absoluteY="19dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
