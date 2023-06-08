@@ -60,10 +60,12 @@
         android:id="@+id/voltar_button"
         android:layout_width="122dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="92dp"
         android:text="Voltar"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="144dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/name_text"

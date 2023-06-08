@@ -4,28 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_1"><![CDATA[
-    tools:context=".MainActivity">
-
-
-
-    ]]>
+    android:background="@drawable/img_1">
 
     <ImageView
         android:id="@+id/broken_egg_invertido2"
-        android:layout_width="214dp"
-        android:layout_height="153dp"
-        app:srcCompat="@drawable/img7"
-        tools:layout_editor_absoluteX="259dp"
-        tools:layout_editor_absoluteY="2dp" />
+        android:layout_width="108dp"
+        android:layout_height="158dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/img7" />
 
     <ImageView
         android:id="@+id/broken_egg2"
-        android:layout_width="214dp"
-        android:layout_height="153dp"
-        app:srcCompat="@drawable/img4"
-        tools:layout_editor_absoluteX="-60dp"
-        tools:layout_editor_absoluteY="578dp" />
+        android:layout_width="105dp"
+        android:layout_height="168dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/img4" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cadastro_email"
@@ -36,8 +39,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cadastro_senha"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome_app" />
+        app:layout_constraintTop_toBottomOf="@+id/nome_app"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/botao_cadastro"
@@ -50,30 +55,41 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/botao_voltar"
+        android:layout_width="132dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="144dp"
+        android:text="Voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/cadastro_senha"
         android:layout_width="214dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/botao_cadastro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cadastro_usuario"
         android:layout_width="215dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="16dp"
         android:hint="Usuário"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cadastro_senha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
