@@ -10,20 +10,20 @@ import android.widget.EditText;
 
 public class login_activity extends AppCompatActivity {
 
-    EditText inserir_usuario;
-    EditText inserir_senha;
+    EditText inserir_usuario_edit_text;
+    EditText inserir_senha_edit_text;
     Button login_button;
-    Button cadastro_button;
+    Button register_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        inserir_usuario = findViewById(R.id.login_usuario);
-        inserir_senha = findViewById(R.id.login_senha);
-        login_button = findViewById(R.id.botao_login);
-        cadastro_button = findViewById(R.id.botao_cadastro);
+        inserir_usuario_edit_text = findViewById(R.id.usuario_edit_text);
+        inserir_senha_edit_text = findViewById(R.id.senha_edit_text);
+        login_button = findViewById(R.id.login_button);
+        register_button = findViewById(R.id.register_button);
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +33,7 @@ public class login_activity extends AppCompatActivity {
             }
         });
 
-        cadastro_button.setOnClickListener(new View.OnClickListener(){
+        register_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(login_activity.this, register_activity.class);

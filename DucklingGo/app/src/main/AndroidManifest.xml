@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DucklingGo"
         tools:targetApi="31">
+
         <activity
             android:name=".login_activity"
             android:exported="true">
@@ -31,6 +32,14 @@
 
         <activity
             android:name=".home_activity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".home_chocado_activity"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />

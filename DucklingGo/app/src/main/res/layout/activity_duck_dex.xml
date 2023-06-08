@@ -31,26 +31,24 @@
         app:srcCompat="@drawable/orange_rectangle" />
 
     <ImageView
-        android:id="@+id/charmander2"
+        android:id="@+id/charmander1"
         android:layout_width="122dp"
         android:layout_height="106dp"
         android:layout_marginTop="88dp"
-        app:layout_constraintBottom_toBottomOf="@+id/orange_rectangle_imageview7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.778"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/charmander" />
 
     <ImageView
-        android:id="@+id/charmander1"
+        android:id="@+id/charmander2"
         android:layout_width="122dp"
         android:layout_height="106dp"
         android:layout_marginTop="88dp"
-        app:layout_constraintBottom_toBottomOf="@+id/orange_rectangle_imageview7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.778"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -68,7 +66,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/name_text"
+        android:id="@+id/username_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -77,12 +75,12 @@
         tools:layout_editor_absoluteY="19dp" />
 
     <TextView
-        android:id="@+id/date_text"
+        android:id="@+id/date_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="184dp"
         android:text="DATADODIA"
-        app:layout_constraintStart_toEndOf="@+id/name_text"
+        app:layout_constraintStart_toEndOf="@+id/username_textview"
         tools:layout_editor_absoluteY="19dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

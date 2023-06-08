@@ -10,10 +10,10 @@ import android.widget.EditText;
 
 public class register_activity extends AppCompatActivity {
 
-    EditText inserir_usuario;
-    EditText inserir_email;
-    EditText inserir_senha;
-    Button cadastrar_button;
+    EditText inserir_usuario_edit_text;
+    EditText inserir_email_edit_text;
+    EditText inserir_senha_edit_text;
+    Button register_button;
     Button voltar_button;
 
     @Override
@@ -21,13 +21,13 @@ public class register_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        inserir_email = findViewById(R.id.cadastro_email);
-        inserir_usuario = findViewById(R.id.cadastro_usuario);
-        inserir_senha = findViewById(R.id.cadastro_senha);
-        cadastrar_button = findViewById(R.id.botao_cadastro);
-        voltar_button = findViewById(R.id.botao_voltar);
+        inserir_email_edit_text = findViewById(R.id.email_edit_text);
+        inserir_usuario_edit_text = findViewById(R.id.cadastro_usuario_edit_text);
+        inserir_senha_edit_text = findViewById(R.id.cadastro_senha_edit_text);
+        register_button = findViewById(R.id.register_button);
+        voltar_button = findViewById(R.id.cadastro_botao_voltar);
 
-        cadastrar_button.setOnClickListener(new View.OnClickListener() {
+        register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // LOGICA DE INSERIR NO BANCO

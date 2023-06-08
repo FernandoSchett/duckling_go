@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/name_text"
+        android:id="@+id/username_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NOMEDOUSUARIO"
@@ -61,13 +61,13 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/date_text"
+        android:id="@+id/date_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="184dp"
         android:text="DATADODIA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/name_text"
+        app:layout_constraintStart_toEndOf="@+id/username_textview"
         tools:layout_editor_absoluteY="19dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
