@@ -1,4 +1,4 @@
-package com.example.ducklinggo;
+package com.example.ducklingGO_activities;
 
 import android.content.Context;
 

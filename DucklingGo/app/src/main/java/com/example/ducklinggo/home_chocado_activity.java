@@ -1,6 +1,6 @@
 package com.example.ducklinggo;
 
-import static com.example.ducklinggo.R.*;
+import com.example.ducklinggo.R.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 

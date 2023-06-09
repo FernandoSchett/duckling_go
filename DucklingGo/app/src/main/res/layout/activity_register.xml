@@ -52,7 +52,7 @@
         android:layout_height="52dp"
         android:layout_marginBottom="144dp"
         android:text="Voltar"
-        app:layout_constraintBottom_toBottomOf="parbroken_egg_invertido2ent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
