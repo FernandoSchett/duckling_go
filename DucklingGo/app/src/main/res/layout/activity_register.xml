@@ -10,77 +10,81 @@
         android:id="@+id/app_name_textview"
         android:layout_width="166dp"
         android:layout_height="56dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="40dp"
         android:text="DUCKLING GO"
         android:textAlignment="center"
         android:textColor="#F44336"
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro_usuario_edit_text"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/email_edit_text"
+        app:layout_constraintEnd_toStartOf="@+id/broken_egg_invertido2_imageview"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/email_edit_text"
         android:layout_width="215dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="32dp"
         android:hint="E-mail"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cadastro_usuario_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/cadastro_usuario_edit_text"
+        android:layout_width="215dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="32dp"
+        android:hint="Usuário"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cadastro_senha_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_textview"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/cadastro_senha_edit_text"
+        android:layout_width="215dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="52dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/register_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/register_button"
         android:layout_width="132dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="252dp"
         android:text="Cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cadastro_botao_voltar"
         android:layout_width="132dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginBottom="184dp"
         android:text="Voltar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/cadastro_senha_edit_text"
-        android:layout_width="214dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="40dp"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/register_button1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/cadastro_usuario_edit_text"
-        android:layout_width="215dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Usuário"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro_senha_edit_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
