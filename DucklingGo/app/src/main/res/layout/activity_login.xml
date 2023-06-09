@@ -59,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/register_button"
+        android:id="@+id/login_register_button"
         android:layout_width="132dp"
         android:layout_height="52dp"
         android:layout_marginBottom="168dp"
