@@ -55,6 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NOMEDOUSUARIO"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +68,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="184dp"
         android:text="DATADODIA"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/username_textview"
-        tools:layout_editor_absoluteY="19dp" />
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
