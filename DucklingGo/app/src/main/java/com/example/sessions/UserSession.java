@@ -1,4 +1,4 @@
-package com.example.database;
+package com.example.sessions;
 
 public class UserSession {
     private static UserSession instance;
