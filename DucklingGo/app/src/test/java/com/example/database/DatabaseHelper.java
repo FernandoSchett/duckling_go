@@ -1,4 +1,4 @@
-package database;
+package com.example.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,7 +8,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "mydatabase.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Definição da de usuário
+    // Definição da tabela de usuário
     private static final String TB_user = "CREATE TABLE IF NOT EXISTS TB_user(" +
             "ID_user INTEGER primary key autoincrement, " +
             "username VARCHAR(200) , " +
@@ -16,7 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "password VARCHAR(300), " +
             "DT_last_hatch String)";
 
-    // Definição da pokemon
+    // Definição da tabela de pokemon
     private static final String TB_pokemon = "CREATE TABLE IF NOT EXISTS TB_pokemon (" +
             "ID_pokemon INTEGER PRIMARY KEY autoincrement, " +
             "ID_api_pokemon INTEGER, " +

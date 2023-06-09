@@ -1,4 +1,4 @@
-package models;
+package com.example.models;
 
 import java.io.Serializable;
 
@@ -47,5 +47,16 @@ public class User implements Serializable {
 
     public void setDT_last_hatch(String DT_last_hatch) {
         this.DT_last_hatch = DT_last_hatch;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id_user=" + id_user +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", DT_last_hatch='" + DT_last_hatch + '\'' +
+                '}';
     }
 }
