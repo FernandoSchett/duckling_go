@@ -15,6 +15,10 @@ public class Pokemon implements Serializable {
     @SerializedName("sprites")
     private Sprites sprites;
 
+    public Pokemon() {
+        this.sprites = new Sprites();
+    }
+
     public int getId_pokemon() {
         return id_pokemon;
     }

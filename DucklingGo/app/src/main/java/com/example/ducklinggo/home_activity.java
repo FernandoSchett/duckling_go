@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.database.DatabaseHelper;
+import com.example.database.pokemonDAO;
+import com.example.database.userDAO;
 import com.example.models.Pokemon;
 import com.example.services.PokemonService;
 import com.example.sessions.PokemonSession;
@@ -46,6 +49,11 @@ public class home_activity extends AppCompatActivity {
     private Retrofit retrofit;
     PokemonService pokemonService;
 
+    // Banco de dados
+    private userDAO userDAO;
+    private pokemonDAO pokemonDAO;
+    private DatabaseHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +63,14 @@ public class home_activity extends AppCompatActivity {
         duckdex_button = findViewById(id.duckdex_button);
         username = findViewById(id.username_textview);
         date = findViewById(id.date_textview);
+
+        // Criando Instancia do banco
+        dbHelper = new DatabaseHelper(getApplicationContext());
+
+
+        // Criando instâncias dos DAOs para as classes modelo
+        userDAO = new userDAO(this);
+        pokemonDAO = new pokemonDAO(this);
 
         username.setText(UserSession.getInstance().getUsername());
 
@@ -88,6 +104,9 @@ public class home_activity extends AppCompatActivity {
                            Pokemon pokemon = response.body();
                            PokemonSession pokemonSession = PokemonSession.getInstance();
                            pokemonSession.setPokemonData(pokemon.getSprites().getFrontDefault(), pokemon.getName_pokemon(), pokemon.getId_api_pokemon());
+
+                           pokemon.setId_user(UserSession.getInstance().getUserId());
+                           pokemonDAO.Inserir(pokemon);
 
                         }
                     }

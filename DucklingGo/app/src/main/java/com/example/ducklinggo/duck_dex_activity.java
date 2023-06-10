@@ -1,16 +1,43 @@
 package com.example.ducklinggo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.adapter.ItemAdapter;
+import com.example.database.DatabaseHelper;
+import com.example.database.pokemonDAO;
+import com.example.database.userDAO;
+import com.example.models.ImageItem;
+import com.example.models.Pokemon;
+import com.example.sessions.UserSession;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class duck_dex_activity extends AppCompatActivity {
     Button voltar_button;
+    ListView pokemons;
+    TextView username;
+    TextView date;
+
+    // Banco de dados
+    private userDAO userDAO;
+    private pokemonDAO pokemonDAO;
+    private DatabaseHelper dbHelper;
+
+    List<Pokemon> pokemons_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +45,29 @@ public class duck_dex_activity extends AppCompatActivity {
         setContentView(R.layout.activity_duck_dex);
 
         voltar_button = findViewById(R.id.voltar_button);
+        username = findViewById(R.id.username_textview);
+        date = findViewById(R.id.date_textview);
+        pokemons = findViewById(R.id.recyclerview_pokemon);
+
+        // Criando Instancia do banco
+        dbHelper = new DatabaseHelper(getApplicationContext());
+
+        // Criando instâncias dos DAOs para as classes modelo
+        userDAO = new userDAO(this);
+        pokemonDAO = new pokemonDAO(this);
+
+        pokemons_list = pokemonDAO.getPokemonsFromDatabase(UserSession.getInstance().getUserId());
+
+        ArrayList<ImageItem> arrayImageItem = new ArrayList<>();
+
+        for(Pokemon p : pokemons_list){
+            ImageItem imageItem = new ImageItem(p.getSprites().getFrontDefault(), p.getName_pokemon());
+            arrayImageItem.add(imageItem);
+        }
+
+        ItemAdapter itemAdapter = new ItemAdapter(this, arrayImageItem);
+
+        pokemons.setAdapter(itemAdapter);
 
         voltar_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,4 +94,18 @@ public class duck_dex_activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private List<ImageItem> createImageItemList() {
+        List<ImageItem> imageItemList = new ArrayList<>();
+
+        // Itera pelos URLs e descrições para criar os ImageItems
+        for(Pokemon p : pokemons_list) {
+
+            ImageItem imageItem = new ImageItem(p.getSprites().getFrontDefault(), p.getName_pokemon());
+            imageItemList.add(imageItem);
+        }
+
+        return imageItemList;
+    }
+
 }
