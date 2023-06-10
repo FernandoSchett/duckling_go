@@ -19,10 +19,10 @@ public class pokemonDAO {
 
     public long Inserir(Pokemon pokemon){
         ContentValues values = new ContentValues();
-        values.put("ID_api_pokemon", pokemon.getId());
+        values.put("ID_api_pokemon", pokemon.getId_api_pokemon());
         values.put("ID_user", pokemon.getId_user());
         values.put("name_pokemon", pokemon.getName_pokemon());
-        values.put("URL_img_pokemon", pokemon.getURL_img_pokemon());
+        values.put("URL_img_pokemon", pokemon.getSprites().getFrontDefault());
 
         return banco.insert(table_name, null, values );
     }

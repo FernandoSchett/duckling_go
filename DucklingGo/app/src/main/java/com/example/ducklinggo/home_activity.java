@@ -75,8 +75,6 @@ public class home_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //username.setText("ABACAXICOMMOSTARDA");
-
                Random random = new Random();
                int pokemonId = random.nextInt(248);
 
@@ -88,11 +86,8 @@ public class home_activity extends AppCompatActivity {
                         if (response.isSuccessful()) {
 
                            Pokemon pokemon = response.body();
-                           username.setText(pokemon.toString());
-
-//                           PokemonSession pokemonSession = PokemonSession.getInstance();
-//
-//                           pokemonSession.setPokemonData(pokemon.getURL_img_pokemon(), pokemon.getName_pokemon(), pokemon.getId_api_pokemon());
+                           PokemonSession pokemonSession = PokemonSession.getInstance();
+                           pokemonSession.setPokemonData(pokemon.getSprites().getFrontDefault(), pokemon.getName_pokemon(), pokemon.getId_api_pokemon());
 
                         }
                     }
@@ -104,8 +99,9 @@ public class home_activity extends AppCompatActivity {
                     }
                 });
 
-//                Intent intent = new Intent(home_activity.this, home_chocado_activity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(home_activity.this, home_chocado_activity.class);
+                intent.putExtra("imageURL", PokemonSession.getInstance().getUrl());
+                startActivity(intent);
             }
         });
 

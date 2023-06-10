@@ -1,7 +1,6 @@
 package com.example.ducklinggo;
 
 import com.example.ducklinggo.R.*;
-import com.example.services.PokemonService;
 import com.example.sessions.PokemonSession;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,15 +11,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import com.example.sessions.UserSession;
+import com.squareup.picasso.Picasso;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class home_chocado_activity extends AppCompatActivity {
 
     Button duckdex_button;
-    TextView lefTime;
+    TextView left_time;
+    ImageView hatch_pokemon_img;
+    TextView pokemon_name;
+    TextView username;
+    TextView date;
+
+    // Lidando com as datas
+    Date currentDate;
+    SimpleDateFormat dateFormat;
+    String formattedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +41,26 @@ public class home_chocado_activity extends AppCompatActivity {
         setContentView(layout.activity_home_chocado);
 
         duckdex_button = findViewById(id.duckdex_button);
-        lefTime = findViewById(id.left_time_textview);
+        left_time = findViewById(id.left_time_textview);
+        hatch_pokemon_img = findViewById(id.hatch_pokemon_img);
+        pokemon_name = findViewById(id.pokemon_name);
+        username = findViewById(id.username_textview);
+        date = findViewById(id.date_textview);
 
-        lefTime.setText(PokemonSession.getInstance().getName());
+        username.setText(UserSession.getInstance().getUsername());
+
+        currentDate = new Date();
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        formattedDate = dateFormat.format(currentDate);
+
+        date.setText(formattedDate);
+
+        Picasso.get()
+                .load(PokemonSession.getInstance().getUrl())
+                .resize(800, 600)
+                .into(hatch_pokemon_img);
+
+        pokemon_name.setText(PokemonSession.getInstance().getName());
 
         duckdex_button.setOnClickListener(new View.OnClickListener() {
             @Override

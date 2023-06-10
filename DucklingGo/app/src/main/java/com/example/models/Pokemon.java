@@ -1,13 +1,19 @@
 package com.example.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Pokemon implements Serializable {
     private int id_pokemon;
-    private int id;
+    @SerializedName("id")
+    private int id_api_pokemon;
     private int id_user;
+    @SerializedName("name")
     private String name_pokemon;
-    private String URL_img_pokemon;
+
+    @SerializedName("sprites")
+    private Sprites sprites;
 
     public int getId_pokemon() {
         return id_pokemon;
@@ -17,12 +23,12 @@ public class Pokemon implements Serializable {
         this.id_pokemon = id_pokemon;
     }
 
-    public int getId() {
-        return id;
+    public int getId_api_pokemon() {
+        return id_api_pokemon;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_api_pokemon(int id_api_pokemon) {
+        this.id_api_pokemon = id_api_pokemon;
     }
 
     public int getId_user() {
@@ -41,22 +47,21 @@ public class Pokemon implements Serializable {
         this.name_pokemon = name_pokemon;
     }
 
-    public String getURL_img_pokemon() {
-        return URL_img_pokemon;
+    public Sprites getSprites() {
+        return sprites;
     }
 
-    public void setURL_img_pokemon(String URL_img_pokemon) {
-        this.URL_img_pokemon = URL_img_pokemon;
+    public void setSprites(Sprites sprites) {
+        this.sprites = sprites;
     }
 
     @Override
     public String toString() {
         return "Pokemon{" +
                 "id_pokemon=" + id_pokemon +
-                ", id_api_pokemon=" + id +
+                ", id_api_pokemon=" + id_api_pokemon +
                 ", id_user=" + id_user +
                 ", name_pokemon='" + name_pokemon + '\'' +
-                ", URL_img_pokemon='" + URL_img_pokemon + '\'' +
-                '}';
+                ", URL = '" + sprites.getFrontDefault() + '\'';
     }
 }
