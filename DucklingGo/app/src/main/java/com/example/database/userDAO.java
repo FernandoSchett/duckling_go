@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.models.User;
 
+import java.util.Date;
+
 public class userDAO {
 
     private DatabaseHelper conexao;
@@ -26,6 +28,45 @@ public class userDAO {
         values.put("DT_last_hatch", user.getDT_last_hatch());
 
         return banco.insert(table_name, null, values );
+    }
+
+    public void updateLastHatch(int id_user, String date){
+        SQLiteDatabase db = conexao.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("DT_last_hatch", date);
+
+        String selection = "ID_user = ?";
+        String[] selectionArgs = { String.valueOf(id_user) };
+
+        db.update(table_name, values, selection, selectionArgs);
+    }
+
+    public String getDateByID(int id) {
+        banco  = conexao.getReadableDatabase();
+
+        String[] columns = {"DT_last_hatch"};  // Coluna que contém a data
+        String selection = "ID_user = ?";  // Condição para selecionar o registro com o ID desejado
+        String[] selectionArgs = {String.valueOf(id)};  // Argumento para substituir o placeholder da condição
+
+        Cursor cursor = banco.query(table_name, columns, selection, selectionArgs, null, null, null);
+
+        String date = "";
+
+        if (cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex("DT_last_hatch");
+            date = cursor.getString(columnIndex);
+        }
+
+        cursor.close();
+        banco.close();
+
+        if(date == null){
+            return "08/03/2003";
+        }else {
+            return date;
+        }
+
     }
 
     public int getUserIdByUsername(String username) {
