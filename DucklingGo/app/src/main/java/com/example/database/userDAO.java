@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.models.User;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class userDAO {
@@ -30,11 +32,14 @@ public class userDAO {
         return banco.insert(table_name, null, values );
     }
 
-    public void updateLastHatch(int id_user, String date){
+    public void updateLastHatch(int id_user, LocalDateTime date){
         SQLiteDatabase db = conexao.getReadableDatabase();
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        String formattedDateTime = date.format(formatter);
+
         ContentValues values = new ContentValues();
-        values.put("DT_last_hatch", date);
+        values.put("DT_last_hatch", formattedDateTime);
 
         String selection = "ID_user = ?";
         String[] selectionArgs = { String.valueOf(id_user) };
@@ -62,7 +67,7 @@ public class userDAO {
         banco.close();
 
         if(date == null){
-            return "08/03/2003";
+            return "2003-03-08T20:00:50";
         }else {
             return date;
         }

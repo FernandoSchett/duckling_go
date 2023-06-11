@@ -29,8 +29,6 @@ import java.util.List;
 public class duck_dex_activity extends AppCompatActivity {
     Button voltar_button;
     ListView pokemons;
-    TextView username;
-    TextView date;
 
     // Banco de dados
     private userDAO userDAO;
@@ -45,8 +43,6 @@ public class duck_dex_activity extends AppCompatActivity {
         setContentView(R.layout.activity_duck_dex);
 
         voltar_button = findViewById(R.id.voltar_button);
-        username = findViewById(R.id.username_textview);
-        date = findViewById(R.id.date_textview);
         pokemons = findViewById(R.id.recyclerview_pokemon);
 
         // Criando Instancia do banco

@@ -1,16 +1,11 @@
 package com.example.ducklinggo;
 
-import static com.example.ducklinggo.R.*;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.service.autofill.UserData;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,13 +22,8 @@ import com.example.sessions.PokemonSession;
 import com.example.sessions.UserSession;
 import com.squareup.picasso.Picasso;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
@@ -42,7 +32,6 @@ import java.util.Random;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -57,7 +46,7 @@ public class home_activity extends AppCompatActivity {
     // Lidando com as datas
     TextView date;
     Date currentDate;
-    SimpleDateFormat dateFormat;
+    java.text.SimpleDateFormat dateFormat;
     String formattedDate;
 
     // Consumindo a API com o retrofit
@@ -72,37 +61,67 @@ public class home_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_home);
 
-        chocar_button = findViewById(id.chocar_button);
-        duckdex_button = findViewById(id.duckdex_button);
-        username = findViewById(id.username_textview);
-        date = findViewById(id.date_textview);
-        pokemon_image_image_view = findViewById(id.broken_egg_imageview);
+        setContentView(R.layout.activity_home);
 
-        // Criando Instancia do banco
+        link_all_elements();
+
+        set_database();
+
+        set_username();
+        set_date();
+
+        link_with_retrofit();
+        hatch_button();
+        duckdex_button();
+
+    }
+
+    public void link_all_elements(){
+        chocar_button = findViewById(R.id.chocar_button);
+        duckdex_button = findViewById(R.id.duckdex_button);
+        username = findViewById(R.id.username_textview);
+        date = findViewById(R.id.date_textview);
+        pokemon_image_image_view = findViewById(R.id.broken_egg_imageview);
+    }
+
+    public void set_database(){
         dbHelper = new DatabaseHelper(getApplicationContext());
-
-
-        // Criando instâncias dos DAOs para as classes modelo
         userDAO = new userDAO(this);
         pokemonDAO = new pokemonDAO(this);
+    }
 
+    public void set_username(){
         username.setText(UserSession.getInstance().getUsername());
+    }
 
+    public void set_date(){
         currentDate = new Date();
-        dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        dateFormat = new java.text.SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         formattedDate = dateFormat.format(currentDate);
 
         date.setText(formattedDate);
+    }
 
+    public void link_with_retrofit(){
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         pokemonService = retrofit.create(PokemonService.class);
+    }
 
+    public void duckdex_button(){
+        duckdex_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home_activity.this, duck_dex_activity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    public void hatch_button(){
         chocar_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,25 +159,24 @@ public class home_activity extends AppCompatActivity {
                         public void onFailure(Call<Pokemon> call, Throwable t) { }
                     });
 
-                    userDAO.updateLastHatch(UserSession.getInstance().getUserId(), formattedDate);
+                    userDAO.updateLastHatch(UserSession.getInstance().getUserId(), currentDate);
 
                     Picasso.get()
                             .load(PokemonSession.getInstance().getUrl())
                             .into(pokemon_image_image_view);
 
-                }else{
-
+                } else {
                     Duration one_day_duration = Duration.ofDays(1);
 
-                    long time_remaning = one_day_duration.toMillis() - duration.toMillis();
+                    long time_remaining = one_day_duration.toMillis() - duration.toMillis();
 
-                    long hours = time_remaning / 3600000;
-                    time_remaning -= hours * 3600000;
+                    long hours = time_remaining / (1000 * 60 * 60);
+                    time_remaining -= hours * (1000 * 60 * 60);
 
-                    long minutes = time_remaning / 60000;
-                    time_remaning -= minutes * 60000;
+                    long minutes = time_remaining / (1000 * 60);
+                    time_remaining -= minutes * (1000 * 60);
 
-                    long totalSeconds = time_remaning / 1000;
+                    long totalSeconds = time_remaining / 1000;
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(home_activity.this);
                     builder.setTitle("Ainda não pode chocar :(");
@@ -173,19 +191,8 @@ public class home_activity extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-
-
             }
         });
-
-        duckdex_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(home_activity.this, duck_dex_activity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     @Override
