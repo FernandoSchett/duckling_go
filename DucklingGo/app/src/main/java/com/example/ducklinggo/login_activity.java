@@ -50,6 +50,7 @@ public class login_activity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(login_activity.this);
                 String username = inserir_usuario_edit_text.getText().toString();
                 String password = inserir_senha_edit_text.getText().toString();
+
                 if(userDAO.loginExists(username, password)){
                     Intent intent = new Intent(login_activity.this, home_activity.class);
                     startActivity(intent);

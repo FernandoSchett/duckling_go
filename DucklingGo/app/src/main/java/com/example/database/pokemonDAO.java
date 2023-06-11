@@ -2,9 +2,13 @@ package com.example.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.models.Pokemon;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class pokemonDAO {
 
@@ -19,30 +23,45 @@ public class pokemonDAO {
 
     public long Inserir(Pokemon pokemon){
         ContentValues values = new ContentValues();
-        values.put("ID_api_pokemon", pokemon.getId());
+        values.put("ID_api_pokemon", pokemon.getId_api_pokemon());
         values.put("ID_user", pokemon.getId_user());
         values.put("name_pokemon", pokemon.getName_pokemon());
-        values.put("URL_img_pokemon", pokemon.getURL_img_pokemon());
+        values.put("URL_img_pokemon", pokemon.getSprites().getFrontDefault());
 
         return banco.insert(table_name, null, values );
     }
 
-//    public List<Cliente> Listar(){
-//        List<Cliente> agenda =  new ArrayList<>();
-//        //select * from agenda
-//        Cursor cursor = banco.query("agenda", new String[]{"id", "nome", "email","idade"},
-//                null, null, null, null, null);
-//
-//        while(cursor.moveToNext()){
-//            Cliente a = new Cliente();
-//            a.setId(cursor.getInt(0));
-//            a.setNome(cursor.getString(1));
-//            a.setEmail(cursor.getString(2));
-//            a.setIdade(cursor.getInt(3));
-//            agenda.add(a);
-//        }
-//        return agenda;
-//    }
+    public ArrayList<Pokemon> getPokemonsFromDatabase(int id) {
+        ArrayList<Pokemon> pokemons = new ArrayList<>();
+
+        banco = conexao.getReadableDatabase();
+
+        String[] columns = {"ID_api_pokemon", "ID_user", "name_pokemon", "URL_img_pokemon"};  // Colunas desejadas do banco de dados
+        String selection = "ID_user = ?";  // Condição para selecionar a linha com o ID desejado
+        String[] selectionArgs = {String.valueOf(id)};  // Argumento para substituir o placeholder da condição
+
+        Cursor cursor = banco.query(table_name, columns, selection, selectionArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Pokemon pokemon = new Pokemon();
+                int column_index = cursor.getColumnIndex("name_pokemon");
+                pokemon.setName_pokemon(cursor.getString(column_index));
+
+                column_index = cursor.getColumnIndex("URL_img_pokemon");
+                pokemon.getSprites().setFrontDefault(cursor.getString(column_index));
+
+                pokemons.add(pokemon);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        banco.close();
+
+        return pokemons;
+    }
+
+
 
     public void Excluir(Pokemon pokemon){
 
