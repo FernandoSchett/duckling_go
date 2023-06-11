@@ -33,7 +33,11 @@ Using [API](https://pokeapi.co/) as a database, players can log in every day and
 
 ## Dependencies:
 
-The project dependencies are described in a dependencies file within the repository. In summary, you will need [retrofit](https://square.github.io/retrofit/) in order to run the project.
+The project dependencies are described in a dependencies file within the repository. In summary, you will need: (in order to run the projec)
+
+- [Retrofit](https://square.github.io/retrofit/).
+- [Picasso](https://square.github.io/picasso/). 
+- [Glide](https://github.com/bumptech/glide).
 
 ## How to run it:
 
@@ -41,7 +45,7 @@ First, clone this repository. After that, open the directory with Android Studio
 
 ## How to install:
 
-Just generate .APK with android studio generator, than install it on your  cellphone :).
+Just generate .APK with android studio generator, than install it on your  cellphone :). Or you can download and install from the releases section.
 
 ## Screens:
 
@@ -53,17 +57,6 @@ Duckling GO screens were developed to turn out like [figma](https://www.figma.co
     </a>
 </div>
 <h3 align="center">Figure 1 - Screens from Duckling GO</h3>
-
-## UML:
-
-Heres the UML that represents how the application works with their classes.
-
-<div align="center">
-	<a href="https://www.figma.com/file/dtiSuxRlSLNXzV9irm17JA/duckling_GO?type=design&t=UGtwTg0RtKuk1VhJ-1">
-	<img height = "250em" src = "" />
-    </a>
-</div>
-<h3 align="center">Figure 2 - Duckling GO UML.</h3>
 
 ## Database:
 
@@ -93,6 +86,3 @@ Feel free to create a new branch, fork the project or contact one of us to devel
 
 ## Licence:
 [Apache V2](https://choosealicense.com/licenses/apache-2.0/)
-
-## References:
-
