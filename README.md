@@ -53,7 +53,7 @@ Duckling GO screens were developed to turn out like [figma](https://www.figma.co
 
 <div align="center">
 	<a href="https://www.figma.com/file/dtiSuxRlSLNXzV9irm17JA/duckling_GO?type=design&t=UGtwTg0RtKuk1VhJ-1">
-	<img height = "250em" src = "" />
+	<img height = "250em" src = "https://github.com/FernandoSchett/duckling-go/assets/80331468/6d3b712c-d013-43e8-ac3c-22999f0cee1e" />
     </a>
 </div>
 <h3 align="center">Figure 1 - Screens from Duckling GO</h3>
@@ -68,7 +68,7 @@ Using relationa databse and SQLlite, Duckling go uses one local database, to sto
     </a>
 </div>
 
-<h3 align="center">Figure 3 - Relational Model Database for local database.</h3>
+<h3 align="center">Figure 2 - Relational Model Database for local database.</h3>
 
 ## Development Process:
 
