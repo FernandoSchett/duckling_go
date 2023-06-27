@@ -6,22 +6,23 @@
     </a>
 </div>
 
-## Developed by:
+## Developed by 💻:
 - [Fernando Schettini](https://github.com/FernandoSchett)
 - [Antonio Horácio Magalhães](https://github.com/AntonioHoracio77)
 - [Orlando Mota Pires](https://github.com/orlandomotapires)
 - [Enzo Gebauer](https://github.com/enzogebauer)
 
-## Special thanks to:
+## Special thanks to 🥰:
 
 - [Edson Mota](https://github.com/edsonmottac) - Our supervising professor, your experience and knowledge have been invaluable to our progress.
 
-## About:
+## About 🤔:
+
 Duckling GO is a mobile game about capturing pokemons, developed in JAVA using Android Studio by undergraduate students in computer engineering.
 
 Using [API](https://pokeapi.co/) as a database, players can log in every day and receive a different random pokemon. This way, it is possible to collect their favorite monsters!
 
-## Resources:
+## Resources 🧑‍🔬:
 
 - Collect random pokemons, with one pokemon per day.
 
@@ -29,25 +30,25 @@ Using [API](https://pokeapi.co/) as a database, players can log in every day and
 
 - Responsive Screens.
 
-- Login and Sign in Feature.
+- Log-in and Sign-in Feature.
 
-## Dependencies:
+## Dependencies 🚚:
 
-The project dependencies are described in a dependencies file within the repository. In summary, you will need: (in order to run the projec)
+In summary, you will need in order to run the project:
 
-- [Retrofit](https://square.github.io/retrofit/).
-- [Picasso](https://square.github.io/picasso/). 
-- [Glide](https://github.com/bumptech/glide).
+- ```retrofit:2.9.0```.
+- ```picasso:2.71828```. 
+- ```glide:4.12.0```.
 
-## How to run it:
+## How to run it 🏃:
 
-First, clone this repository. After that, open the directory with Android Studio Flamingo. Then emulate the app after downloading dependencies.
+First, clone this repository. After that, open the directory with [Android Studio Flamingo 2022.2.1](https://developer.android.com/studio/releases?hl=pt-br). Then emulate the app after downloading dependencies.
 
-## How to install:
+## How to install 🔬:
 
-Just generate .APK with android studio generator, than install it on your  cellphone :). Or you can download and install from the releases section.
+Just generate .APK with android studio generator, than install it on your cellphone :). Or you can download and install the lastest version from the releases section.
 
-## Screens:
+## Screens 🎬:
 
 Duckling GO screens were developed to turn out like [figma](https://www.figma.com/file/dtiSuxRlSLNXzV9irm17JA/duckling_GO?type=design&t=UGtwTg0RtKuk1VhJ-1).
 
@@ -58,7 +59,18 @@ Duckling GO screens were developed to turn out like [figma](https://www.figma.co
 </div>
 <h3 align="center">Figure 1 - Screens from Duckling GO</h3>
 
-## Database:
+## Logic Model 🧮:
+
+Here's the logic model that represents how the code works with their classes.
+
+<div align="center">
+	<a href="">
+	<img height = "250em" src = "https://github.com/FernandoSchett/github_readme_template/assets/80331486/4e4d24ee-efce-41d9-873b-3ececaf1cdd5" />
+    </a>
+</div>
+<h4 align="center">Figure 2 - Logic Model.</h4>
+
+## Database 🗃️:
 
 Using relationa databse and SQLlite, Duckling go uses one local database, to store all pokemons captured, represented by schema below.
 
@@ -68,21 +80,22 @@ Using relationa databse and SQLlite, Duckling go uses one local database, to sto
     </a>
 </div>
 
-<h3 align="center">Figure 2 - Relational Model Database for local database.</h3>
+<h3 align="center">Figure 3 - Relational Model Database for local database.</h3>
 
-## Development Process:
+## Development Process ⚙️:
 
 Developers used [Trello]() to get things organized, each one using their own branch to code, using names to identify the commit type then merginng the features into develop branch. After testing, the group update the main branch. This application was developed in 08/06/2023 until 12/06/2023.
 
 ## Tools Used:
 
-- Android Studio Flamingo.
-- Miro.
-- Figma.
+- [Android Studio Flamingo 2022.2.1](https://developer.android.com/studio/releases?hl=pt-br).
+- [Miro](https://www.miro.com).
+- [Figma](https://www.figma.com).
 
-## How to contribute:
+## How to contribute 🫂:
 
 Feel free to create a new branch, fork the project or contact one of us to develop at Duckling GO game.
 
-## Licence:
+## Licence 📜:
+
 [Apache V2](https://choosealicense.com/licenses/apache-2.0/)
